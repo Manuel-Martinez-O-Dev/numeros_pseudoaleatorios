@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo Congruencial Multiplicativo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        table, th, td {
+            border: 1px solid #dddddd;
+        }
+        th, td {
+            padding: 8px 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        input[type="number"] {
+            padding: 5px;
+            width: 120px;
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Algoritmo Congruencial Multiplicativo</h1>
+
+    <form id="form">
+        <label for="a">Valor de a: </label>
+        <input type="number" id="a" name="a" required><br><br>
+        <label for="x">Valor de x<sub>0</sub> (semilla): </label>
+        <input type="number" id="x" name="x" required><br><br>
+        <label for="m">Valor de m: </label>
+        <input type="number" id="m" name="m" required><br><br>
+        <label for="N">Número de iteraciones (N): </label>
+        <input type="number" id="N" name="N" required><br><br>
+        <input type="submit" value="Generar">
+    </form>
+
+    <table id="resultado">
+        <thead>
+            <tr>
+                <th>Iteración</th>
+                <th>x</th>
+                <th>r</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        const alg_cong_mult = function(a, x, m, N) {
+            let tem = x;
+            const tbody = document.querySelector("#resultado tbody");
+            tbody.innerHTML = ''; // Limpiar tabla anterior
+
+            for(let i = 0; i < N; i++) {
+                let res = (a * tem) % m;
+                let r = m - 1;
+                let result_r = res / r;
+
+                // Mostrar los resultados en la tabla
+                const row = `<tr>
+                                <td>${i + 1}</td>
+                                <td>${res}</td>
+                                <td>${result_r}</td>
+                            </tr>`;
+                tbody.innerHTML += row;
+
+                tem = res;
+            }
+        }
+
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const a = parseInt(document.getElementById('a').value);
+            const x = parseInt(document.getElementById('x').value);
+            const m = parseInt(document.getElementById('m').value);
+            const N = parseInt(document.getElementById('N').value);
+
+            alg_cong_mult(a, x, m, N);
+        });
+    </script>
+
+</body>
+</html>

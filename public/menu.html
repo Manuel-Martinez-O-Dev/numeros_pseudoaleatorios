@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Algoritmos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        button {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Selecciona un Algoritmo</h1>
+
+    <button id="cuadrados_medios">Algoritmo de Cuadrados Medios</button>
+    <button id="productos_medios">Algoritmo de Productos Medios</button>
+    <button id="multiplicativo_constante">Algoritmo Multiplicativo Constante</button>
+    <button id="lineal">Algoritmo Lineal</button>
+    <button id="cong_mult">Algoritmo Congruencial Multiplicativo</button>
+    <button id="cong_aditivo">Algoritmo Congruencial Aditivo</button>
+    <button id="cong_no_lineal">Algoritmo Congruencial No Lineal</button>
+
+    <script>
+        document.getElementById('cuadrados_medios').addEventListener('click', function() {
+            window.location.href = '/cuadrados_medios';
+        });
+
+        document.getElementById('productos_medios').addEventListener('click', function() {
+            window.location.href = '/productos_medios';
+        });
+
+        document.getElementById('multiplicativo_constante').addEventListener('click', function() {
+            window.location.href = '/multiplicativo_constante';
+        });
+
+        document.getElementById('lineal').addEventListener('click', function() {
+            window.location.href = '/lineal';
+        });
+
+        document.getElementById('cong_mult').addEventListener('click', function() {
+            window.location.href = '/congruencial_multiplicativo';
+        });
+
+        document.getElementById('cong_aditivo').addEventListener('click', function() {
+            window.location.href = '/congruencial_aditivo';
+        });
+
+        document.getElementById('cong_no_lineal').addEventListener('click', function() {
+            window.location.href = '/congruencial_no_lineal';
+        });
+    </script>
+</body>
+</html>
